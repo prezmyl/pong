@@ -23,7 +23,7 @@ public class DrawingThread extends AnimationTimer {
 	 */
 	@Override
 	public void handle(long now) {
-		if (lastTime > 0) {
+		if (lastTime > 0) { //pokud neni prvni snimek
 			double deltaT = (now - lastTime) / 1e9;
 			// call simulate on world
 			this.game.simulate(deltaT);

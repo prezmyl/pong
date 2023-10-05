@@ -9,11 +9,12 @@ public class Bat {
 	private final Game game;
 	private final double sizeY;
 	private final double sizeX;
+	private final double lineWidth = 20;
 	
 	private Point2D position;
 	private Point2D velocity;
 	//private Point2D acceleration;
-	//private Point2D velocity;
+
 	
 	public Bat(Game game, Point2D position, Point2D velocity, double sizeX, double sizeY) {
 		this.position = position;
@@ -31,9 +32,13 @@ public class Bat {
 	}
 	
 	public void simulate(double deltaT) {
-		position = position.add(velocity).multiply(deltaT));	
-		position = new Point2D(position.getX() + game.getWidth(), position.getY());
+		position = position.add(velocity);	
 		
+	    double maxY = game.getHeight() - sizeY;
+	    
+	    if (position.getY() - sizeY - lineWidth < 0 || position.getY() > (game.getHeight() - lineWidth)) {
+			this.velocity = velocity.multiply(-1);
+		}
 	}
 	
 	protected Game getGame() {
