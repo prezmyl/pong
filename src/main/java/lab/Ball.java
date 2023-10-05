@@ -3,23 +3,20 @@ package lab;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.transform.Affine;
-import javafx.scene.transform.Transform;
+
 
 public class Ball {
 	private  Game game;
 	private Point2D position;
 	private Point2D velocity;
-	private double angle;
 	private final double gap = 40;
 	private final double batWidth = 20;		
 	private double size;
 	
-	public Ball(Game game, Point2D position, Point2D velocity, double size, int angle) {
+	public Ball(Game game, Point2D position, Point2D velocity, double size) {
 		this.game = game;
 		this.position = position;
 		this.velocity = velocity;
-		this.angle = angle;
 		this.size = size;
 		
 	}
